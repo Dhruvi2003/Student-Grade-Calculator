@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="FormCss.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://unicons.iconscout.com/release/v4.0.0/css/line.css"
+    />
+    <link href="https://fonts.googleapis.com/css?family=Lato|Liu+Jian+Mao+Cao&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <!-- Created by Bablu Soni, https://siteworld.in -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Grade System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="main">
+            <div class="main-2">
+                <div class="text-box">
+                    <h2>student <br>grade <br>calculator</h2>
+                </div>
+                <div class="inputs-box">
+                  <form action="form-submit" method="post">
+                    <input type="text" class="input-feilds" required placeholder="Name" id="txtName" name="name"> <br>  
+                    <input type="text" class="input-feilds" required placeholder="Id" id="txtId" name="id"> <br>
+                    <input  type="text" class="input-feilds" required placeholder="Address" id="txtAddress" name="address"> <br/><br/>
+                      
+                        <input type="text" class="input-feilds" required name="ds" id="ds" placeholder="DATA STRUCTURE-II" autocomplete="off">
+                        <input type="text" class="input-feilds" required name="wb" id="wd" placeholder="WEB DESIGN" autocomplete="off">
+                        <input type="text" class="input-feilds" required name="se" id="sw" placeholder="SOFTWARE ENGINEERING" autocomplete="off">
+                        <input type="text" class="input-feilds" required name="c" id="cpp" placeholder="C++" autocomplete="off">
+                        <input type="text" class="input-feilds" required name="pj" id="project" placeholder="PROJECT" autocomplete="off">
+                        <button type="button" id="btn" onclick="myfunction()">Show Percentage</button>
+                </div>
+            </div>
+            
+            <div class="message">
+                <p id="msg" ></p>
+            </div>
+            <button type="submit" class="btn">
+              <input type="submit" class="btnText" />
+              <i class="uil uil-navigator"></i>
+            </button>
+          </form>
+        </div>
+    </div>
+    <script >
+      function myfunction() {
+				var fname = document.getElementById('txtName').value;
+            var regfname = /^[a-zA-Z]{1,30}$/;
+	            if(!regfname.test(fname)){
+		     document.getElementById('txtName').focus();
+		    alert("Please enter name of max 30 characters a-z or A-Z");
+		    return false;
+	           }
+			   var number = document.getElementById('txtId').value;
+			   var num= /^[0-9]+$/;
+				   if(!num.test(number)){
+				document.getElementById('txtId').focus();
+			   alert("Please enter an ID of only numbers");
+			   return false;
+				  }
+
+			   var add = document.getElementById('txtAddress').value;
+                if(add == ""){
+	             document.getElementById('txtAddress').focus();
+	                alert("please enter your address");
+                      return false;
+  }
+    let data_structure = document.getElementById('ds').value;
+    let web_design = document.getElementById('wd').value;
+    let software_eng = document.getElementById('sw').value;
+    let Cpp = document.getElementById('cpp').value;
+    let Project = document.getElementById('project').value;
+    let grade = "";
+
+    let total = parseFloat(data_structure) + parseFloat(web_design) + parseFloat(software_eng) + parseFloat(Cpp) + parseFloat(Project);
+    // alert(total);
+
+    var averageMarks = total / 5; 
+    
+    // alert(percent);
+    switch(
+				
+					
+						//usage of ternary operator inside switch
+			
+						(averageMarks > 90 && averageMarks <= 100) ? 1 : 
+						(averageMarks > 80 && averageMarks <= 90) ? 2 : 
+						(averageMarks > 65 && averageMarks <= 80) ? 3 :
+						(averageMarks >50  && averageMarks <= 65) ? 4 : 
+						(averageMarks >= 33 && averageMarks <= 50) ? 5 : 
+						(averageMarks <33) ? 6 : 0   
+					  )
+						
+						{
+							case 1 :grade = "A";result="Excellent";break;
+							case 2 :grade = "B"; result="Very Good";break;
+							case 3 :grade = "C"; result="Good";break;
+							case 4 :grade = "D"; result="Average";break;
+							case 5 :grade = "E"; result="Can Do Better";break;
+							case 6 :grade = "F"; result="Fail";break;
+						}
+						
+
+    // alert(grade)
+
+    
+    document.getElementById('msg').innerHTML = `Your Total Marks is ${total}/500 , Average Marks is ${averageMarks}% , grade is ${grade} and result is ${result}.`
+    
+}
+    </script>
+</body>
+
+</html>
+    <!-- <div class="container">
+      <header>ScoreCard</header>
+
+      <form action="form-submit" method="post">
+        <div class="form first">
+          <div class="details personal">
+            <span class="title">Student Infomation</span>
+
+            <div class="fields">
+              <div class="input-field">
+                <label>First Name</label>
+                <input
+                  type="text"
+                  placeholder="Enter your name"
+                  name="firstname"
+                  required
+                />
+              </div>
+
+
+              <div class="fields">
+                <div class="input-field">
+                  <label>Last Name</label>
+                  <input
+                    type="text"
+                    placeholder="Enter your name"
+                    name="Lastname"
+                    required
+                  />
+                </div>
+
+              <div class="input-field">
+                <label>Email</label>
+                <input
+                  type="text"
+                  placeholder="Enter your email"
+                  name="email"
+                  required
+                />
+              </div>
+
+              <div class="input-field">
+                <label>Address</label>
+                <input
+                  type="text"
+                  placeholder="Enter your Address"
+                  name="address"
+                  required
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="details ID">
+            <span class="title">Marks</span>
+
+            <div class="fields">
+              <div class="input-field">
+                <label>Maths</label>
+                <input
+                  type="number"
+                  id="am"
+                  placeholder="Enter  Marks"
+                  name="math"
+                  required
+                />
+              </div>
+
+              <div class="input-field">
+                <label>Science</label>
+                <input
+                  type="number"
+                  id="aj"
+                  placeholder="Enter Marks"
+                  name="science"
+                  required
+                />
+              </div>
+
+              <div class="input-field">
+                <label>English</label>
+                <input
+                  type="number"
+                  id="ad"
+                  placeholder="Enter Marks"
+                  name="english"
+                  required
+                />
+              </div>
+
+              <div class="input-field">
+                <label>Sst</label>
+                <input
+                  type="number"
+                  id="an"
+                  placeholder="Enter Marks"
+                  name="Sst"
+                  required
+                />
+              </div>
+
+              <div class="input-field">
+                <label>hindi</label>
+                <input
+                  type="number"
+                  id="the"
+                  placeholder="Enter Hindi Marks"
+                  name="Hindi"
+                  required
+                />
+              </div>
+
+              <div class="input-field">
+                <label>Total Marks</label>
+                <input
+                  type="number"
+                  id="total"
+                  placeholder="Total Marks"
+                  name="totalmarks"
+                  required
+                />
+              </div>
+
+              <div class="input-field">
+                <label>Average</label>
+                <input
+                  type="float"
+                  id="avg"
+                  placeholder="Average"
+                  name="Average"
+                  required
+                />
+              </div>
+              <div class="input-field">
+                <label>Grade</label>
+                <input
+                  type="text"
+                  id="Grade"
+                  placeholder="Grade"
+                  name="Grade"
+                  required
+                />
+              </div>
+            </div>
+
+            <button type="submit" onclick="myfunction()" class="nextBtn">
+              <input type="submit" class="btnText" />
+              <i class="uil uil-navigator"></i>
+            </button>
+          </div>
+        </div>
+      </form>
+    </div> -->
+    <!-- <script type="text/javascript">
+      function myfunction() {
+        var n, k, r, e, v, sum, avg;
+        n = parseFloat(document.getElementById("am").value);
+        k = parseFloat(document.getElementById("aj").value);
+        r = parseFloat(document.getElementById("ad").value);
+        e = parseFloat(document.getElementById("an").value);
+        v = parseFloat(document.getElementById("the").value);
+        sum = n + k + r + e + v;
+        avg = sum / 5;
+        document.getElementById("total").value = sum;
+        document.getElementById("avg").value = avg;
+
+        if (avg >= 33) {
+          document.getElementById("Grade").value = "Pass";
+        } else {
+          document.getElementById("Grade").value = "Fail";
+        }
+      }
+    </script>
+  </body>
+</html> -->
